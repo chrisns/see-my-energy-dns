@@ -120,7 +120,7 @@ resource "cloudflare_record" "google-mx3" {
   type     = "MX"
 }
 
-resource "cloudflare_record" "google-mx3" {
+resource "cloudflare_record" "google-mx4" {
   zone_id  = cloudflare_zone.zone.id
   priority = 10
   name     = "@"
@@ -128,7 +128,7 @@ resource "cloudflare_record" "google-mx3" {
   type     = "MX"
 }
 
-resource "cloudflare_record" "google-mx4" {
+resource "cloudflare_record" "google-mx5" {
   zone_id  = cloudflare_zone.zone.id
   priority = 10
   name     = "@"
