@@ -55,5 +55,4 @@ resource "cloudflare_record" "txt" {
   value   = "Redirects from /* to https://github.com/seemy-energy/*"
   type    = "TXT"
   ttl     = 3600
-  proxied = true
 }
