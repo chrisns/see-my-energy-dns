@@ -20,7 +20,7 @@ resource "cloudflare_zone" "zone" {
 
 resource "cloudflare_page_rule" "www" {
   zone_id = cloudflare_zone.zone.id
-  target = "*"
+  target = "seemy.energy/*"
   priority = 1
 
   actions {
