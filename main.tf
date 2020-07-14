@@ -36,7 +36,6 @@ resource "cloudflare_record" "www" {
   name    = "www"
   value   = "45.55.72.95"
   type    = "A"
-  ttl     = 3600
   proxied = true
 }
 
@@ -45,7 +44,6 @@ resource "cloudflare_record" "A" {
   name    = "@"
   value   = "45.55.72.95"
   type    = "A"
-  ttl     = 3600
   proxied = true
 }
 
@@ -54,7 +52,6 @@ resource "cloudflare_record" "txt" {
   name    = "_redirect"
   value   = "Redirects from /* to https://github.com/seemy-energy/*"
   type    = "TXT"
-  ttl     = 3600
 }
 
 resource "cloudflare_record" "googleverification" {
@@ -62,5 +59,4 @@ resource "cloudflare_record" "googleverification" {
   name    = "google-site-verification"
   value   = "HVWM7CJx3Mim1-71i8yqfk_4t-6NsqeIypG8PSQvF9o"
   type    = "TXT"
-  ttl     = 3600
 }
