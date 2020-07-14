@@ -61,6 +61,13 @@ resource "cloudflare_record" "googleverification" {
   type    = "TXT"
 }
 
+resource "cloudflare_record" "googleverification2" {
+  zone_id = cloudflare_zone.zone.id
+  name    = "fm7ueftxkl4c"
+  value   = "gv-xl2g3o6tpsi77p.dv.googlehosted.com"
+  type    = "CNAME"
+}
+
 resource "cloudflare_record" "githubverification" {
   zone_id = cloudflare_zone.zone.id
   name    = "_github-challenge-seemy-energy"
