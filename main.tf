@@ -56,3 +56,11 @@ resource "cloudflare_record" "txt" {
   type    = "TXT"
   ttl     = 3600
 }
+
+resource "cloudflare_record" "googleverification" {
+  zone_id = cloudflare_zone.zone.id
+  name    = "google-site-verification"
+  value   = "HVWM7CJx3Mim1-71i8yqfk_4t-6NsqeIypG8PSQvF9o"
+  type    = "TXT"
+  ttl     = 3600
+}
