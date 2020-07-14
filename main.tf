@@ -24,6 +24,9 @@ resource "cloudflare_page_rule" "www" {
   priority = 1
 
   actions {
-    forwarding_url = "https://github.com/seemy-energy"
+    forwarding_url {
+      url = "https://github.com/seemy-energy"
+      status_code = 301
+    } 
   }
 }
