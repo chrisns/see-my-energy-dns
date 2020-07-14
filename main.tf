@@ -87,6 +87,7 @@ resource "cloudflare_record" "googleverification2" {
   name    = "fm7ueftxkl4c"
   value   = "gv-xl2g3o6tpsi77p.dv.googlehosted.com"
   type    = "CNAME"
+  proxied = true
 }
 
 resource "cloudflare_record" "githubverification" {
