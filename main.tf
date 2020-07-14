@@ -30,3 +30,30 @@ resource "cloudflare_page_rule" "www" {
     } 
   }
 }
+
+resource "cloudflare_record" "www" {
+  zone_id = cloudflare_zone.zone.id
+  name    = "www"
+  value   = "45.55.72.95"
+  type    = "A"
+  ttl     = 3600
+  proxied = true
+}
+
+resource "cloudflare_record" "A" {
+  zone_id = cloudflare_zone.zone.id
+  name    = "@"
+  value   = "45.55.72.95"
+  type    = "A"
+  ttl     = 3600
+  proxied = true
+}
+
+resource "cloudflare_record" "txt" {
+  zone_id = cloudflare_zone.zone.id
+  name    = "_redirect"
+  value   = "Redirects from /* to https://github.com/seemy-energy/*"
+  type    = "TXT"
+  ttl     = 3600
+  proxied = true
+}
