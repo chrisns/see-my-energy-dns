@@ -60,3 +60,10 @@ resource "cloudflare_record" "googleverification" {
   value   = "HVWM7CJx3Mim1-71i8yqfk_4t-6NsqeIypG8PSQvF9o"
   type    = "TXT"
 }
+
+resource "cloudflare_record" "githubverification" {
+  zone_id = cloudflare_zone.zone.id
+  name    = "_github-challenge-seemy-energy"
+  value   = "f5dee3f587"
+  type    = "TXT"
+}
