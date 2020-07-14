@@ -47,12 +47,20 @@ resource "cloudflare_record" "A" {
   proxied = true
 }
 
-resource "cloudflare_record" "txt" {
+resource "cloudflare_record" "WWW_REDIRECT" {
+  zone_id = cloudflare_zone.zone.id
+  name    = "_redirect.www"
+  value   = "Redirects from /* to https://github.com/seemy-energy/*"
+  type    = "TXT"
+}
+
+resource "cloudflare_record" "A_REDIRECT" {
   zone_id = cloudflare_zone.zone.id
   name    = "_redirect"
   value   = "Redirects from /* to https://github.com/seemy-energy/*"
   type    = "TXT"
 }
+
 
 resource "cloudflare_record" "googleverification" {
   zone_id = cloudflare_zone.zone.id
