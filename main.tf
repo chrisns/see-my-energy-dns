@@ -16,7 +16,6 @@ provider "cloudflare" {
 
 resource "cloudflare_zone" "zone" {
   zone = "seemy.energy"
-  plan = "free"
 }
 
 resource "cloudflare_record" "www" {
