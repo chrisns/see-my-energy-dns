@@ -1,6 +1,6 @@
 terraform {
   backend "remote" {
-    hostname = "app.terraform.io"
+    hostname     = "app.terraform.io"
     organization = "seemy-energy"
 
     workspaces {
@@ -18,16 +18,29 @@ resource "cloudflare_zone" "zone" {
   zone = "seemy.energy"
 }
 
-resource "cloudflare_page_rule" "www" {
-  zone_id = cloudflare_zone.zone.id
-  target = "seemy.energy/*"
+resource "cloudflare_page_rule" "nowww" {
+  zone_id  = cloudflare_zone.zone.id
+  target   = "seemy.energy/*"
   priority = 1
 
   actions {
     forwarding_url {
-      url = "https://github.com/seemy-energy"
+      url         = "https://github.com/seemy-energy"
       status_code = 301
-    } 
+    }
+  }
+}
+
+resource "cloudflare_page_rule" "www" {
+  zone_id  = cloudflare_zone.zone.id
+  target   = "www.seemy.energy/*"
+  priority = 1
+
+  actions {
+    forwarding_url {
+      url         = "https://github.com/seemy-energy"
+      status_code = 301
+    }
   }
 }
 
@@ -81,4 +94,44 @@ resource "cloudflare_record" "githubverification" {
   name    = "_github-challenge-seemy-energy"
   value   = "f5dee3f587"
   type    = "TXT"
+}
+
+resource "cloudflare_record" "google-mx1" {
+  zone_id  = cloudflare_zone.zone.id
+  priority = 1
+  name     = "@"
+  value    = "ASPMX.L.GOOGLE.COM"
+  type     = "MX"
+}
+
+resource "cloudflare_record" "google-mx2" {
+  zone_id  = cloudflare_zone.zone.id
+  priority = 5
+  name     = "@"
+  value    = "ALT1.ASPMX.L.GOOGLE.COM"
+  type     = "MX"
+}
+
+resource "cloudflare_record" "google-mx3" {
+  zone_id  = cloudflare_zone.zone.id
+  priority = 5
+  name     = "@"
+  value    = "ALT2.ASPMX.L.GOOGLE.COM"
+  type     = "MX"
+}
+
+resource "cloudflare_record" "google-mx3" {
+  zone_id  = cloudflare_zone.zone.id
+  priority = 10
+  name     = "@"
+  value    = "ALT3.ASPMX.L.GOOGLE.COM"
+  type     = "MX"
+}
+
+resource "cloudflare_record" "google-mx4" {
+  zone_id  = cloudflare_zone.zone.id
+  priority = 10
+  name     = "@"
+  value    = "ALT4.ASPMX.L.GOOGLE.COM"
+  type     = "MX"
 }
