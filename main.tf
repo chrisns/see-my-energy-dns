@@ -19,7 +19,7 @@ resource "cloudflare_zone" "zone" {
   plan = "free"
 }
 
-resource "cloudflare_record" "A" {
+resource "cloudflare_record" "www" {
   zone_id = cloudflare_zone.zone.id
   name    = "www"
   value   = "45.55.72.95"
@@ -28,7 +28,7 @@ resource "cloudflare_record" "A" {
 }
 
 
-resource "cloudflare_record" "A" {
+resource "cloudflare_record" "nowww" {
   zone_id = cloudflare_zone.zone.id
   name    = "@"
   value   = "45.55.72.95"
